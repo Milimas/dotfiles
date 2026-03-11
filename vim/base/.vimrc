@@ -43,6 +43,12 @@ set cursorline
 set termguicolors
 highlight CursorLine cterm=NONE ctermbg=235 gui=NONE guibg=#2e2e2e
 
+" True color support
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE guibg=#3a3a3a
+
 " ── Search ───────────────────────────────────────────────
 set incsearch
 set hlsearch

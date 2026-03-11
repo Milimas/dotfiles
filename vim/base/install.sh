@@ -6,19 +6,23 @@
 
 set -e
 
+# ── Guard: skip if already installed ─────────────────────
+if [ -f "$HOME/.vim/autoload/plug.vim" ] && [ "${FORCE_REINSTALL:-}" != "1" ]; then
+  echo "==> vim/base already installed, skipping."
+  echo "    (set FORCE_REINSTALL=1 to reinstall)"
+  exit 0
+fi
+
 echo "==> Installing vim/base..."
 
-# Install dependencies
 echo "==> Installing system packages..."
 sudo apt update -qq
 sudo apt install -y vim-gtk3 curl git xclip
 
-# Install vim-plug
 echo "==> Installing vim-plug..."
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# Copy vimrc
 echo "==> Copying .vimrc..."
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -29,10 +33,8 @@ fi
 
 cp "$SCRIPT_DIR/.vimrc" ~/.vimrc
 
-# Install plugins
 echo "==> Installing Vim plugins..."
 vim +PlugInstall +qall
 
 echo ""
 echo "✓ vim/base installed successfully!"
-echo "  - Your old .vimrc was backed up to ~/.vimrc.backup (if it existed)"
