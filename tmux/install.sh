@@ -42,3 +42,4 @@ echo "  Prefix: Ctrl+a"
 echo "  Split horizontal: Prefix + |"
 echo "  Split vertical:   Prefix + -"
 echo "  Reload config:    Prefix + r"
+
