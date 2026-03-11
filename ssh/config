@@ -1,0 +1,40 @@
+# ============================================================
+#  SSH Config Template
+#  Location: ~/.ssh/config
+# ============================================================
+
+# ── Global defaults ───────────────────────────────────────
+Host *
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+
+# ── GitHub (personal) ────────────────────────────────────
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_github
+
+# ── GitHub (work) ────────────────────────────────────────
+# Uncomment and fill in if you have a work GitHub account
+# Host github-work
+#     HostName github.com
+#     User git
+#     IdentityFile ~/.ssh/id_github_work
+#
+# Usage: git clone git@github-work:org/repo.git
+
+# ── VPS / Remote server ───────────────────────────────────
+# Host myserver
+#     HostName 192.168.1.100
+#     User ubuntu
+#     Port 22
+#     IdentityFile ~/.ssh/id_server
+
+# ── Jump host (bastion) ───────────────────────────────────
+# Host internal
+#     HostName 10.0.0.5
+#     User admin
+#     ProxyJump myserver
+#     IdentityFile ~/.ssh/id_server
