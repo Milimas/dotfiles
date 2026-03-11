@@ -41,6 +41,7 @@ syntax on
 filetype plugin indent on
 set cursorline
 set termguicolors
+highlight CursorLine cterm=NONE ctermbg=235 gui=NONE guibg=#2e2e2e
 
 " ── Search ───────────────────────────────────────────────
 set incsearch
