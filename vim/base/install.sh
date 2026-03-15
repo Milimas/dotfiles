@@ -16,8 +16,8 @@ fi
 echo "==> Installing vim/base..."
 
 echo "==> Installing system packages..."
-sudo apt update -qq
-sudo apt install -y vim-gtk3 curl git xclip
+sudo apt update -q
+sudo apt install -y vim-gtk3 curl git xclip nodejs npm
 
 echo "==> Installing vim-plug..."
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \

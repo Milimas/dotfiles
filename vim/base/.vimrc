@@ -22,6 +22,9 @@ Plug 'vim-airline/vim-airline-themes'
 " Multi Cursor
 Plug 'mg979/vim-visual-multi'
 
+" Markdown preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install' }
+
 call plug#end()
 
 " ── General ──────────────────────────────────────────────
@@ -68,3 +71,5 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <leader>m <C-w>\| <C-w>_
 nnoremap <leader>= <C-w>=
+nnoremap <leader>md :MarkdownPreview<CR>
+
