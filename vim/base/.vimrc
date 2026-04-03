@@ -73,3 +73,36 @@ nnoremap <leader>m <C-w>\| <C-w>_
 nnoremap <leader>= <C-w>=
 nnoremap <leader>md :MarkdownPreview<CR>
 
+" ── Vimdiff mode ─────────────────────────────────────────
+if &diff
+    " better diff display
+    set diffopt=filler,vertical,iwhite,internal,algorithm:histogram
+    set wrap
+    set linebreak
+    set nolist
+    set nocursorline
+    set foldmethod=diff
+    set scrollbind
+    set cursorbind
+
+    " make split vertical for git difftool
+    set diffopt+=vertical
+
+    " readable diff colors
+    highlight DiffAdd      cterm=bold ctermfg=NONE ctermbg=22  gui=bold guibg=#294436
+    highlight DiffDelete   cterm=bold ctermfg=NONE ctermbg=52  gui=bold guibg=#51202a
+    highlight DiffChange   cterm=bold ctermfg=NONE ctermbg=17  gui=bold guibg=#1f2a44
+    highlight DiffText     cterm=bold ctermfg=NONE ctermbg=24  gui=bold guibg=#365f8c
+
+    " column indicators
+    highlight DiffAdded    ctermfg=2
+    highlight DiffRemoved  ctermfg=1
+
+    " make filler lines subtle
+    highlight DiffLine     ctermbg=236 guibg=#2a2a2a
+
+    " improve readability
+    set colorcolumn=
+    set number
+    set relativenumber
+endif
